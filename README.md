@@ -8,6 +8,10 @@ Chessboard vue component to load positions, create positions and see threats
 - It uses [chess.js](https://github.com/jhlywa/chess.js) for chess movements and validations
 - It uses chessground for chessboard UI  [chessground](https://github.com/ornicar/chessground)
 
+![http://g.recordit.co/40JDuy8tAk.gif](http://g.recordit.co/40JDuy8tAk.gif)
+
+Check live examples: [http://vitomd.com/vue-chessboard-examples/](http://vitomd.com/vue-chessboard-examples/)
+
 ## Table of contents
 
 - [Installation](#installation)
@@ -48,7 +52,7 @@ Then use it in your template
   
   Check live examples repository: [https://github.com/vitogit/vue-chessboard-examples](https://github.com/vitogit/vue-chessboard-examples)
   
-  Check full application using the component: [Chess Guardian](vitomd.com/vue-chess-guardian/)
+  Check full application using the component: [Chess Guardian](http://vitomd.com/vue-chess-guardian/)
 
   #### Simple Chessboard with legal moves
   ```html
