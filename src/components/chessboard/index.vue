@@ -24,6 +24,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    onPromotion: {
+      type: Function,
+      default: () => 'q',
+    },
   },
   watch: {
     fen: function (newFen) {
@@ -72,16 +76,35 @@ export default {
       })
       this.board.setShapes(threats)
     },
+    calculatePromotions () {
+      let moves = this.game.moves({verbose: true})
+      this.promotions = []
+      for (let move of moves) {
+        if (move.promotion) {
+          this.promotions.push(move)
+        }
+      }
+    },
+    isPromotion   (orig, dest) {
+      let filteredPromotions = this.promotions.filter(move => move.from === orig && move.to === dest)
+      return filteredPromotions.length > 0 // The current movement is a promotion
+    },
     changeTurn () {
-      return (orig, dest) => {
-        this.game.move({from: orig, to: dest})
+      return (orig, dest, metadata) => {
+        if (this.isPromotion(orig, dest)) {
+          this.promoteTo = this.onPromotion()
+        }
+
+        this.game.move({from: orig, to: dest, promotion: this.promoteTo}) // promote to queen for simplicity
         this.board.set({
+          fen: this.game.fen(),
           turnColor: this.toColor(),
           movable: {
             color: this.toColor(),
             dests: this.possibleMoves(),
           },
         })
+        this.calculatePromotions()
         this.afterMove()
       }
     },
@@ -141,6 +164,8 @@ export default {
   created () {
     this.game = new Chess()
     this.board = null
+    this.promotions = []
+    this.promoteTo = 'q'
   },
 }
 </script>
