@@ -34,6 +34,12 @@ export default {
       this.fen = newFen
       this.loadPosition()
     },
+    showThreats: function (st) {
+      this.showThreats = st
+      if (this.showThreats) {
+        this.paintThreats()
+      }
+    },
   },
   methods: {
     possibleMoves () {
@@ -140,6 +146,7 @@ export default {
       threats[`legal_${color}`] = uniques(moves.map(x => x.from + x.to)).length // promotions count as 4 moves. This remove those duplicates moves.
       threats[`checks_${color}`] = checks
       threats[`threat_${color}`] = captures
+      threats[`turn`] = color
       return threats
     },
     loadPosition () { // set a default value for the configuration object itself to allow call to loadPosition()
@@ -156,6 +163,7 @@ export default {
       this.board.set({
         movable: { events: { after: this.changeTurn() } },
       })
+      this.afterMove()
     },
   },
   mounted () {
