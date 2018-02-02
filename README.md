@@ -40,10 +40,23 @@ Then use it in your template
 ## Browser
 
 ```html
+<div id="app">
+  <chessboard></chessboard>
+</div>
+
 <link rel="stylesheet" href="vue-chessboard/dist/vue-chessboard.css"/>
 
 <script src="vue.js"></script>
 <script src="vue-chessboard/dist/vue-chessboard.browser.js"></script>
+
+<script>
+new Vue({
+  el: '#app',
+  components: {
+    VueChessboard
+  }
+});
+</script>
 ```
 
 # Examples
