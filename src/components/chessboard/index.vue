@@ -100,7 +100,6 @@ export default {
         if (this.isPromotion(orig, dest)) {
           this.promoteTo = this.onPromotion()
         }
-
         this.game.move({from: orig, to: dest, promotion: this.promoteTo}) // promote to queen for simplicity
         this.board.set({
           fen: this.game.fen(),
@@ -119,6 +118,7 @@ export default {
         this.paintThreats()
       }
       let threats = this.countThreats(this.toColor())
+      threats['history'] = this.game.history()
       this.$emit('onMove', threats)
     },
     countThreats (color) {
