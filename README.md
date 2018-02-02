@@ -40,10 +40,23 @@ Then use it in your template
 ## Browser
 
 ```html
+<div id="app">
+  <chessboard></chessboard>
+</div>
+
 <link rel="stylesheet" href="vue-chessboard/dist/vue-chessboard.css"/>
 
 <script src="vue.js"></script>
 <script src="vue-chessboard/dist/vue-chessboard.browser.js"></script>
+
+<script>
+new Vue({
+  el: '#app',
+  components: {
+    VueChessboard
+  }
+});
+</script>
 ```
 
 # Examples
@@ -76,7 +89,7 @@ Then use it in your template
     </button>
   ```
 
-  #### Simple Chessboard with legal moves
+  #### Chessboard with onmove callback. Returns positional info { "legal_black": 20, "checks_black": 0, "threat_black": 0, "turn": "black" } after each move.
   ```html
     <chessboard @onMove="showInfo"/>
     <div>
