@@ -12,7 +12,7 @@
     "chessboard",
     "chess"
   ],
-  "license": "MIT",
+  "license": "GPL-3.0",
   "main": "dist/vue-chessboard.common.js",
   "unpkg": "dist/vue-chessboard.browser.js",
   "module": "index.js",
