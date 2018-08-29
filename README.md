@@ -117,4 +117,4 @@ promote() {
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT)
+GPL-3.0 
