@@ -28,10 +28,19 @@ export default {
       type: Function,
       default: () => 'q',
     },
+    orientation: {
+      type: String,
+      default: 'white',
+    },
   },
   watch: {
     fen: function (newFen) {
       this.fen = newFen
+      this.loadPosition()
+    },
+    orientation: function (orientation) {
+      console.log('watch orientation________', orientation)
+      this.orientation = orientation
       this.loadPosition()
     },
     showThreats: function (st) {
@@ -160,6 +169,7 @@ export default {
           free: this.free,
           dests: this.possibleMoves(),
         },
+        orientation: this.orientation,
       })
       this.board.set({
         movable: { events: { after: this.changeTurn() } },

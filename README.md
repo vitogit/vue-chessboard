@@ -76,6 +76,11 @@ new Vue({
     <chessboard :free="true"/>
   ```
 
+  #### Simple Chessboard with black orientation. Default is white
+  ```html
+    <chessboard orientation="black"/>
+  ```
+
   #### Simple Chessboard that shows threats for current position and player
   ```html
     <chessboard :showThreats="true"/>
