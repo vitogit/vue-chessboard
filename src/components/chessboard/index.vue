@@ -126,7 +126,7 @@ export default {
       if (this.showThreats) {
         this.paintThreats()
       }
-      let threats = this.countThreats(this.toColor())
+      let threats = this.countThreats(this.toColor()) || {}
       threats['history'] = this.game.history()
       threats['fen'] = this.game.fen()
       this.$emit('onMove', threats)

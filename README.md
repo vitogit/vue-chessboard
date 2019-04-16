@@ -120,6 +120,10 @@ promote() {
   ```
 ---
 
+## Want to see all my chess related projects? 
+
+Check [My projects](http://vitomd.com/blog/projects/) for a full detailed list.
+
 ## License
 
-[MIT](http://opensource.org/licenses/MIT)
+GPL-3.0 
