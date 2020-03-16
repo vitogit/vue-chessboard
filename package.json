@@ -1,7 +1,7 @@
 {
   "name": "vue-chessboard",
   "description": "Chessboard vue component to load positions, create positions and see threats",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "author": {
     "name": "vitogit",
     "email": "vitogit@users.noreply.github.com"
@@ -52,7 +52,7 @@
     "webpack-merge": "^1.1.2"
   },
   "dependencies": {
-    "chess.js": "^0.10.2",
-    "chessground": "^7.2.10"
+    "chess.js": "0.10.2",
+    "chessground": "7.2.10"
   }
 }
