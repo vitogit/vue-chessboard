@@ -1,13 +1,14 @@
 <template>
   <div class="blue merida">
-    <div ref="board" class="cg-board-wrap"></div> </br>
+    <div ref="board" class="cg-board-wrap"></div>
+    <br>
   </div>
 </template>
 
 <script>
 import Chess from 'chess.js'
-import {Chessground} from 'chessground'
-import {uniques} from './Util.js'
+import { Chessground } from 'chessground'
+import { uniques } from './Util.js'
 
 export default {
   name: 'chessboard',
@@ -39,7 +40,6 @@ export default {
       this.loadPosition()
     },
     orientation: function (orientation) {
-      console.log('watch orientation________', orientation)
       this.orientation = orientation
       this.loadPosition()
     },
@@ -105,7 +105,7 @@ export default {
       return filteredPromotions.length > 0 // The current movement is a promotion
     },
     changeTurn () {
-      return (orig, dest, metadata) => {
+      return (orig, dest) => {
         if (this.isPromotion(orig, dest)) {
           this.promoteTo = this.onPromotion()
         }

@@ -1,36 +1,28 @@
 import chessboard from './components/chessboard/index.vue'
+import './components/chessboard/style/theme.css'
 
-// Install the components
-export function install (Vue) {
-  Vue.component('chessboard', chessboard)
-  /* -- Add more components here -- */
+// Declare install function executed by Vue.use()
+export function install(Vue) {
+	if (install.installed) return;
+	install.installed = true;
+	Vue.component('chessboard', chessboard);
 }
 
-// Expose the components
-export {
-  chessboard,
-  /* -- Add more components here -- */
-}
-
-/* -- Plugin definition & Auto-install -- */
-/* You shouldn't have to modify the code below */
-
-// Plugin
+// Create module definition for Vue.use()
 const plugin = {
-  /* eslint-disable no-undef */
-  version: VERSION,
-  install,
-}
+	install,
+};
 
-export default plugin
-
-// Auto-install
-let GlobalVue = null
+// Auto-install when vue is found (eg. in browser via <script> tag)
+let GlobalVue = null;
 if (typeof window !== 'undefined') {
-  GlobalVue = window.Vue
+	GlobalVue = window.Vue;
 } else if (typeof global !== 'undefined') {
-  GlobalVue = global.Vue
+	GlobalVue = global.Vue;
 }
 if (GlobalVue) {
-  GlobalVue.use(plugin)
+	GlobalVue.use(plugin);
 }
+
+// To allow use as module (npm/webpack/etc.) export component
+export default chessboard;
