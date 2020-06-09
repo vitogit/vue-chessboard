@@ -1,7 +1,7 @@
 {
   "name": "vue-chessboard",
   "description": "Chessboard vue component to load positions, create positions and see threats",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "author": {
     "name": "vitogit",
     "email": "vitogit@users.noreply.github.com"
@@ -21,7 +21,8 @@
     "build": "npm run build:browser && npm run build:common",
     "build:browser": "cross-env NODE_ENV=production webpack --config config/webpack.config.browser.js --progress --hide-modules",
     "build:common": "cross-env NODE_ENV=production webpack --config config/webpack.config.common.js --progress --hide-modules",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "pretest": "eslint . --ext .js --ext .vue"
   },
   "repository": {
     "type": "git",

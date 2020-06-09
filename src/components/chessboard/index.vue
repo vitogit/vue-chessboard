@@ -39,7 +39,6 @@ export default {
       this.loadPosition()
     },
     orientation: function (orientation) {
-      console.log('watch orientation________', orientation)
       this.orientation = orientation
       this.loadPosition()
     },
