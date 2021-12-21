@@ -178,6 +178,7 @@ export default {
   },
   mounted () {
     this.loadPosition()
+    this.calculatePromotions()
   },
   created () {
     this.game = new Chess()
