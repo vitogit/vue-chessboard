@@ -53,7 +53,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "chess.js": "^0.10.2",
+    "chess.js": "^0.13.3",
     "chessground": "^8.2.1"
   }
 }
